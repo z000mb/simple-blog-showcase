@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      args:
+        VERSION: $NGINX_VERSION
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+      target: dev
+    depends_on:
+      - php-fpm
+    ports:
+      - ${NGINX_PORT}:80
+    volumes:
+      - ./app/public:/app/public
+
+  php-fpm:
+    build:
+      args:
+        VERSION: $PHP_VERSION
+      context: .
+      dockerfile: ./docker/php-fpm/Dockerfile
+      target: dev
+    tty: true
+    volumes:
+      - ./app:/app
