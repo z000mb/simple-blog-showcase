@@ -12,6 +12,7 @@ I run the application in the Linux environment.
 #### If you use an application address other than http://localhost:8000, you must set the `APP_URL` in `.env`
 #### If you run `docker compose up` manually the first time, you need to initialize the database and optionally fill it with fixtures
 ```bash
+docker compose exec php-fpm composer install --no-interaction --optimize-autoloader
 docker compose exec php-fpm php bin/console doctrine:migrations:migrate -n
 docker compose exec php-fpm php bin/console doctrine:fixtures:load -n
 docker compose exec php-fpm php bin/console assets:install -n

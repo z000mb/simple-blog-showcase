@@ -1,5 +1,6 @@
 start:
 	docker compose up -d --build
+	docker compose exec php-fpm composer install --no-interaction --optimize-autoloader
 	docker compose exec php-fpm php bin/console doctrine:migrations:migrate -n
 	docker compose exec php-fpm php bin/console doctrine:fixtures:load -n
 	docker compose exec php-fpm php bin/console assets:install -n

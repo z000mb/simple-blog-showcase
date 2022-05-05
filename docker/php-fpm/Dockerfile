@@ -6,8 +6,6 @@ ENV APP_ENV=dev
 
 ## Install system dependencies
 RUN apk update && \
-#    apk add ca-certificates wget && \
-#    update-ca-certificates && \
     apk add --no-cache --virtual dev-deps git autoconf gcc g++ make icu-dev && \
     apk add --no-cache zlib-dev libzip-dev postgresql-dev
 
@@ -26,8 +24,6 @@ RUN wget https://getcomposer.org/installer && \
     php installer --install-dir=/usr/local/bin/ --filename=composer && \
     rm installer
 
-RUN composer install
-
 FROM dev AS prod
 
 ENV APP_ENV=prod
@@ -39,4 +35,6 @@ RUN composer install --no-dev --no-interaction --optimize-autoloader
 
 RUN chown -R www-data:www-data .
 
+## Disable xdebug and composer on production
+RUN rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN rm /usr/local/bin/composer
