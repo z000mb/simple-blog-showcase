@@ -1,0 +1,19 @@
+parameters:
+    uploaded_images:
+        postImageDir: '%kernel.project_dir%/public/uploads/images'
+        postImageUriPath: 'uploads/images'
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $uploadedImagesConfig: '%uploaded_images%'
+            $appUrl: '%env(APP_URL)%'
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'

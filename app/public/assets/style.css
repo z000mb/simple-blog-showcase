@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font: normal 13px Arial, sans-serif;
+    line-height: 1.5;
+}
+
+#container {
+    display: table;
+    margin: 15px auto;
+    width: 1200px;
+}
+
+#post-list-container {
+    margin-top: 15px;
+}
+
+#form .rows {
+    display: table;
+    margin: 15px auto;
+    width: 400px;
+}
+
+#form .rows .row {
+    margin-top: 10px;
+    display: flex;
+}
+
+#form .rows .row.submit-row {
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#form .rows .row.submit-row .success-message {
+    color: #2a952e;
+    display: none;
+}
+
+#form .rows .row.submit-row .btn {
+    width: 100px;
+    background-color: #DDEFEF;
+    outline: none;
+    border: 1px solid #777;
+    padding: 5px 10px;
+}
+
+#form label {
+    width: 30%;
+    padding-right: 10px;
+    text-align: right;
+}
+
+#form input, #form textarea {
+    width: 70%;
+}
+
+#form textarea {
+    resize: vertical;
+}
+
+#form fieldset {
+    border-color: #DDEEEE;
+}
+
+#errors {
+    color: #ff0000;
+}
+
+#posts-list tbody tr td img {
+    max-width: 200px;
+    max-height: 100px;
+}
+
+#posts-list {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#posts-list thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+#posts-list tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+#paginator {
+    margin-top: 15px;
+}
+
+#paginator button {
+    font-size: 16px;
+    padding: 10px;
+    margin: 0 5px 0 0;
+    background-color: #DDEFEF;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#paginator button:disabled {
+    border: 1px solid #777;
+    cursor: default;
+}
