@@ -7,7 +7,7 @@ ENV APP_ENV=dev
 ## Install system dependencies
 RUN apk update && \
     apk add --no-cache --virtual dev-deps git autoconf gcc g++ make icu-dev && \
-    apk add --no-cache zlib-dev libzip-dev postgresql-dev
+    apk add --no-cache zlib-dev libzip-dev postgresql-dev linux-headers 
 
 ## Install php extensions
 RUN pecl install xdebug && \
