@@ -3,6 +3,10 @@
 
 Symfony simple blog application.
 
+## TODO
+- CQRS
+- Tests
+
 ## Pre-requirements
 You need `docker` and `docker compose v2` stack.\
 Additionally, you need `make` package.\
